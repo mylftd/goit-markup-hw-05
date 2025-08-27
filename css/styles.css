@@ -576,7 +576,6 @@ footer {
 .footer-email {
   display: flex;
   flex-direction: column;
-  gap: 16px;
 
   margin-left: 80px;
 }
@@ -593,6 +592,8 @@ footer {
   line-height: 1.5;
   letter-spacing: 0.02em;
   color: var(--white);
+
+  margin-bottom: 16px;
 }
 
 .footer-input-field {
@@ -687,9 +688,12 @@ footer {
     0 2px 1px 0 rgba(0, 0, 0, 0.2);
   overflow: auto;
 
-  position: relative;
+  position: absolute; /* вместо relative */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 
-  padding: 72px 24px 16px;
+  padding: 72px 24px 24px 24px;
 }
 
 .modal-close-btn {
@@ -705,21 +709,23 @@ footer {
   justify-content: center;
   align-items: center;
 
-  border-radius: 100%;
+  border-radius: 50%;
   background-color: var(--cornflower);
-  border-color: rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   fill: var(--navy-blue);
 
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.modal-close-btn + svg {
+.modal-icon {
   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-close-btn:hover,
 .modal-close-btn:focus {
   background-color: var(--ocean);
+  border: none;
   fill: var(--white);
 }
 
@@ -731,6 +737,10 @@ footer {
   text-align: center;
   color: var(--navy-blue);
   margin-bottom: 16px;
+}
+
+.form-field {
+  margin-bottom: 24px;
 }
 
 .form-field-wrapper .form-field:nth-child(-n + 3) {
@@ -821,7 +831,7 @@ footer {
   font-family: var(--font-family);
   font-weight: 400;
   font-size: 12px;
-  line-height: 1.16667;
+  line-height: 1.17;
   letter-spacing: 0.04em;
   color: var(--navy-blue-modal);
 }
@@ -865,7 +875,7 @@ footer {
 .checkbox-text {
   font-weight: 400;
   font-size: 12px;
-  line-height: 1.16667;
+  line-height: 1.17;
   letter-spacing: 0.04em;
   color: var(--light-slate);
 }
@@ -889,7 +899,7 @@ footer {
   color: var(--white);
 
   cursor: pointer;
-  margin: 24px 96px 0;
+  margin: 0px 96px;
 
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
